@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Irrigation installation">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dcefcf"/>
+      <stop offset=".55" stop-color="#a7d4c7"/>
+      <stop offset="1" stop-color="#57775d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <path d="M0 526c178-46 350-48 516-5s332 49 502-5c68-22 126-27 182-20v264H0z" fill="#416b4e"/>
+  <path d="M88 571c192 22 365 20 520-6 184-30 350-26 504 13" fill="none" stroke="#1d4938" stroke-width="22" stroke-linecap="round"/>
+  <path d="M126 602h948" stroke="#caa15d" stroke-width="16" stroke-linecap="round" opacity=".72"/>
+  <g fill="none" stroke="#e9f8fb" stroke-linecap="round">
+    <path d="M246 505c-18-62 8-116 72-160" stroke-width="10"/>
+    <path d="M524 514c-8-92 31-162 116-211" stroke-width="10"/>
+    <path d="M812 508c23-78 80-132 171-162" stroke-width="10"/>
+  </g>
+  <g fill="#e9f8fb" opacity=".92">
+    <circle cx="229" cy="456" r="10"/>
+    <circle cx="265" cy="392" r="8"/>
+    <circle cx="330" cy="344" r="10"/>
+    <circle cx="504" cy="456" r="9"/>
+    <circle cx="560" cy="374" r="8"/>
+    <circle cx="650" cy="302" r="11"/>
+    <circle cx="846" cy="445" r="9"/>
+    <circle cx="913" cy="382" r="8"/>
+    <circle cx="994" cy="342" r="10"/>
+  </g>
+  <path d="M156 238c155-65 330-75 524-30 117 27 226 26 326-3" stroke="#fff6d0" stroke-width="18" stroke-linecap="round" fill="none" opacity=".45"/>
+</svg>

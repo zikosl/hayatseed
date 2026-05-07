@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Smart irrigation monitoring">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d4f0ee"/>
+      <stop offset=".5" stop-color="#74b8b5"/>
+      <stop offset="1" stop-color="#244c43"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <path d="M0 566c160-75 310-86 451-34 202 74 357 78 544 10 76-28 144-34 205-21v239H0z" fill="#244f3d"/>
+  <rect x="418" y="176" width="364" height="260" rx="34" fill="#f8fffb" opacity=".9"/>
+  <rect x="452" y="216" width="296" height="72" rx="18" fill="#d7f0e9"/>
+  <path d="M482 334h236" stroke="#2a7a65" stroke-width="18" stroke-linecap="round"/>
+  <path d="M482 378h164" stroke="#6ab39c" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="690" cy="372" r="26" fill="#2a7a65"/>
+  <g fill="none" stroke="#edfefa" stroke-linecap="round" opacity=".78">
+    <path d="M600 154c-38-38-38-75 0-112" stroke-width="14"/>
+    <path d="M548 125c-63-64-63-126 0-188" stroke-width="10"/>
+    <path d="M652 125c63-64 63-126 0-188" stroke-width="10"/>
+  </g>
+  <g stroke="#b8f1df" stroke-width="8" stroke-linecap="round" opacity=".6">
+    <path d="M154 610h892"/>
+    <path d="M226 653h780"/>
+    <path d="M320 696h562"/>
+  </g>
+  <circle cx="209" cy="205" r="56" fill="#fff3b0" opacity=".85"/>
+</svg>

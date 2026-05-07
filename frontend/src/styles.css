@@ -1,0 +1,212 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.984 0.006 106);
+  --foreground: oklch(0.23 0.043 154);
+  --card: oklch(0.995 0.002 95);
+  --card-foreground: oklch(0.23 0.043 154);
+  --popover: oklch(0.995 0.002 95);
+  --popover-foreground: oklch(0.23 0.043 154);
+  --primary: oklch(0.46 0.135 156);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.014 156);
+  --secondary-foreground: oklch(0.3 0.06 154);
+  --muted: oklch(0.95 0.01 106);
+  --muted-foreground: oklch(0.51 0.018 154);
+  --accent: oklch(0.93 0.034 196);
+  --accent-foreground: oklch(0.28 0.075 188);
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.012 120);
+  --input: oklch(0.92 0.012 120);
+  --ring: oklch(0.57 0.14 176);
+  --teal: oklch(0.65 0.13 195);
+  --teal-foreground: oklch(0.99 0 0);
+  --success: oklch(0.62 0.18 145);
+  --success-foreground: oklch(0.99 0 0);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.43 0.13 154), oklch(0.59 0.1 188));
+  --gradient-card-active: linear-gradient(135deg, oklch(0.92 0.06 165), oklch(0.88 0.06 200));
+  --gradient-card-off: linear-gradient(135deg, oklch(0.97 0.008 106), oklch(0.93 0.018 176));
+  --gradient-mission: linear-gradient(135deg, oklch(0.36 0.1 154), oklch(0.52 0.11 199));
+  --gradient-surface: radial-gradient(circle at top left, oklch(0.95 0.03 168 / 0.9), transparent 36%),
+    radial-gradient(circle at top right, oklch(0.94 0.04 200 / 0.9), transparent 30%),
+    linear-gradient(180deg, oklch(0.992 0.004 100), oklch(0.97 0.008 110));
+  --gradient-panel: linear-gradient(180deg, oklch(1 0 0 / 0.94), oklch(0.98 0.006 120 / 0.92));
+  --shadow-soft: 0 20px 45px -28px oklch(0.27 0.06 150 / 0.28);
+  --shadow-card: 0 18px 40px -30px oklch(0.26 0.05 154 / 0.18);
+  --shadow-nav: 0 18px 50px -32px oklch(0.24 0.05 154 / 0.28);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--gradient-surface);
+    color: var(--color-foreground);
+    font-family: "Manrope", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    background-attachment: fixed;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+  .bg-gradient-card-active {
+    background-image: var(--gradient-card-active);
+  }
+  .bg-gradient-card-off {
+    background-image: var(--gradient-card-off);
+  }
+  .bg-gradient-mission {
+    background-image: var(--gradient-mission);
+  }
+  .bg-gradient-surface {
+    background-image: var(--gradient-surface);
+  }
+  .bg-gradient-panel {
+    background-image: var(--gradient-panel);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-nav {
+    box-shadow: var(--shadow-nav);
+  }
+  .surface-card {
+    background: var(--gradient-panel);
+    border: 1px solid color-mix(in oklab, var(--border) 84%, white 16%);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(14px);
+  }
+  .surface-subtle {
+    background: color-mix(in oklab, var(--card) 84%, var(--secondary) 16%);
+    border: 1px solid color-mix(in oklab, var(--border) 88%, white 12%);
+  }
+  .data-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@keyframes drop-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.animate-ripple {
+  animation: ripple 2.4s ease-out infinite;
+}
+.animate-ripple-delay {
+  animation: ripple 2.4s ease-out 1.2s infinite;
+}
+.animate-drop-pulse {
+  animation: drop-pulse 2s ease-in-out infinite;
+}
+
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+@keyframes logo-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.1);
+  }
+}
+@keyframes logo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-logo-float {
+  animation: logo-float 5s ease-in-out infinite;
+}
+.animate-logo-glow {
+  animation: logo-glow 4s ease-in-out infinite;
+}
+.animate-logo-rise {
+  animation: logo-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}

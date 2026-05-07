@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Hydroseeding field work">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#b9e4df"/>
+      <stop offset="0.55" stop-color="#eaf5dd"/>
+      <stop offset="1" stop-color="#f4d8a3"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" x2="1">
+      <stop offset="0" stop-color="#466f47"/>
+      <stop offset="1" stop-color="#9db75a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <path d="M0 504c154-78 282-82 442-25 167 59 306 52 441-11 116-54 210-56 317-7v299H0z" fill="url(#land)"/>
+  <path d="M0 590c205-46 387-54 586-14 213 43 407 32 614-34v218H0z" fill="#315c43" opacity=".78"/>
+  <path d="M124 478c132-74 302-100 476-58" fill="none" stroke="#d9efb4" stroke-width="18" stroke-linecap="round" opacity=".8"/>
+  <path d="M743 422c66-49 150-67 262-53" fill="none" stroke="#d9efb4" stroke-width="14" stroke-linecap="round" opacity=".65"/>
+  <g opacity=".75" fill="none" stroke="#164431" stroke-linecap="round">
+    <path d="M172 615c44-42 80-42 124 0" stroke-width="8"/>
+    <path d="M412 632c44-42 80-42 124 0" stroke-width="8"/>
+    <path d="M676 606c44-42 80-42 124 0" stroke-width="8"/>
+    <path d="M920 637c44-42 80-42 124 0" stroke-width="8"/>
+  </g>
+  <circle cx="996" cy="142" r="76" fill="#f3bf55" opacity=".85"/>
+  <path d="M222 360h112l42 58H260z" fill="#1f4e3c"/>
+  <circle cx="267" cy="432" r="27" fill="#162f2c"/>
+  <circle cx="365" cy="432" r="27" fill="#162f2c"/>
+  <path d="M374 388c74-36 156-53 248-49" stroke="#dff4d0" stroke-width="12" stroke-linecap="round" fill="none"/>
+</svg>

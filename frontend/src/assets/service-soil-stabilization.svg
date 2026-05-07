@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Soil stabilization on slopes">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d9ece1"/>
+      <stop offset=".5" stop-color="#b8c884"/>
+      <stop offset="1" stop-color="#6d6a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <path d="M0 328c166-30 313-17 441 38 174 75 316 77 426 6 105-68 216-80 333-37v425H0z" fill="#7d7648"/>
+  <path d="M0 466c217-35 393-7 528 85 149 101 373 110 672 27v182H0z" fill="#43583d"/>
+  <g fill="none" stroke="#e3efb3" stroke-width="12" stroke-linecap="round" opacity=".82">
+    <path d="M120 459c165-52 323-34 475 54"/>
+    <path d="M220 531c142-35 276-20 402 45"/>
+    <path d="M600 435c116-61 255-72 416-31"/>
+    <path d="M696 510c108-44 229-50 363-18"/>
+  </g>
+  <g fill="#274936" opacity=".75">
+    <path d="M197 414c34-56 67-56 101 0-32-16-65-16-101 0z"/>
+    <path d="M484 458c34-56 67-56 101 0-32-16-65-16-101 0z"/>
+    <path d="M856 387c34-56 67-56 101 0-32-16-65-16-101 0z"/>
+  </g>
+  <circle cx="1018" cy="142" r="68" fill="#f0c263" opacity=".78"/>
+</svg>

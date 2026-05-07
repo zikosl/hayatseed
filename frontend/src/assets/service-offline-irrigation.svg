@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Offline irrigation in remote land">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6dfa9"/>
+      <stop offset=".55" stop-color="#d7be77"/>
+      <stop offset="1" stop-color="#58704d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <path d="M0 475c153-33 306-26 460 20 240 72 487 46 740-77v342H0z" fill="#6f7b4b"/>
+  <path d="M0 590c198-42 391-39 579 8 207 52 414 45 621-20v182H0z" fill="#405d3f"/>
+  <path d="M161 516h858" stroke="#234536" stroke-width="18" stroke-linecap="round"/>
+  <path d="M293 478v95M614 468v106M882 451v116" stroke="#234536" stroke-width="14" stroke-linecap="round"/>
+  <g fill="none" stroke="#e8f6d8" stroke-linecap="round" opacity=".72">
+    <path d="M292 472c-45-62-54-119-26-171" stroke-width="10"/>
+    <path d="M612 462c42-83 112-131 210-144" stroke-width="10"/>
+    <path d="M884 444c-15-73 11-129 78-169" stroke-width="10"/>
+  </g>
+  <path d="M105 318c94-58 184-71 270-39 88 32 165 22 232-31" stroke="#fff1c0" stroke-width="18" stroke-linecap="round" fill="none" opacity=".48"/>
+  <circle cx="986" cy="160" r="70" fill="#f2b74f" opacity=".9"/>
+</svg>
