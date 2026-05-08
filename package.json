@@ -7,9 +7,14 @@
     "backend"
   ],
   "scripts": {
-    "dev": "docker compose up --build",
+    "dev": "docker compose -f docker-compose.dev.yml up --build",
+    "dev:down": "docker compose -f docker-compose.dev.yml down",
     "dev:frontend": "npm --workspace frontend run dev",
     "dev:backend": "npm --workspace backend run start:dev",
+    "prod:build": "docker compose -f docker-compose.prod.yml build",
+    "prod:up": "docker compose -f docker-compose.prod.yml up -d --build",
+    "prod:down": "docker compose -f docker-compose.prod.yml down",
+    "prod:logs": "docker compose -f docker-compose.prod.yml logs -f",
     "build": "npm --workspace frontend run build && npm --workspace backend run build",
     "lint": "npm --workspace frontend run lint && npm --workspace backend run lint",
     "format": "prettier --write .",
