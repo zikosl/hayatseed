@@ -296,7 +296,7 @@ function AdminProductsPage() {
                 label={t("common.name")}
                 value={draft.name}
                 onChange={(value) => setDraft({ ...draft, name: value })}
-                placeholder="Premium Grass Seed"
+                placeholder={t("admin.products.namePlaceholder")}
                 required
               />
               <TextAreaField

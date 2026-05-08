@@ -1,4 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  useLocation,
+} from "@tanstack/react-router";
 import {
   Bell,
   Cpu,
@@ -18,9 +23,12 @@ export const Route = createFileRoute("/client")({
 });
 
 function ClientHomePage() {
+  const location = useLocation();
   const { user } = useAuth();
   const { orders, notifications } = useAppState();
   const { t } = useI18n();
+  if (location.pathname !== "/client") return <Outlet />;
+
   const clientOrders = orders.filter((order) => order.userId === user?.id);
   const unread = notifications.filter(
     (notification) => notification.userId === user?.id && !notification.read,

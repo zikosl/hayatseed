@@ -14,6 +14,7 @@ import {
   Wrench,
 } from "lucide-react";
 import logo from "@/assets/hayatseed-logo.png";
+import { useI18n } from "@/lib/i18n";
 import { formatDuration, useIrrigation } from "@/lib/irrigation";
 
 export const Route = createFileRoute("/")({
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { t } = useI18n();
   const { isOn, elapsed } = useIrrigation();
 
   return (
@@ -43,7 +45,7 @@ function HomePage() {
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/7 px-3 py-1.5 text-xs font-semibold text-primary">
               <Sparkles className="h-3.5 w-3.5" />
-              Operations software for irrigation, orders, and field coordination
+              {t("home.opsBadge")}
             </div>
 
             <div className="mt-6 flex items-center gap-3">
@@ -56,24 +58,20 @@ function HomePage() {
               </div>
               <div>
                 <div className="text-sm font-semibold text-foreground">
-                  Hayatseed Platform
+                  {t("home.platform")}
                 </div>
                 <div className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                  Smart land operations
+                  {t("home.landOps")}
                 </div>
               </div>
             </div>
 
             <h1 className="mt-8 max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-[3.6rem]">
-              Run irrigation, orders, and field service from one clean control
-              layer.
+              {t("home.mainTitle")}
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-              Hayatseed combines smart irrigation control, guest ordering,
-              client follow-up, and admin operations in a product that feels
-              modern enough for SaaS and practical enough for real work on the
-              ground.
+              {t("home.mainIntro")}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -81,20 +79,20 @@ function HomePage() {
                 to="/order"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft"
               >
-                Start an order <ArrowRight className="h-4 w-4" />
+                {t("home.startOrder")} <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/auth"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-5 py-3 text-sm font-semibold text-foreground"
               >
-                Open workspace
+                {t("home.openWorkspace")}
               </Link>
             </div>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <HeroStat value="38%" label="Water reduction model" />
-              <HeroStat value="3 roles" label="Visitor, client, admin" />
-              <HeroStat value="24/7" label="Order tracking access" />
+              <HeroStat value="38%" label={t("home.stat.water")} />
+              <HeroStat value="3" label={t("home.stat.roles")} />
+              <HeroStat value="24/7" label={t("home.stat.tracking")} />
             </div>
           </div>
         </div>
@@ -104,21 +102,21 @@ function HomePage() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="text-xs font-bold tracking-[0.24em] text-primary">
-                  LIVE PANEL
+                  {t("home.livePanel")}
                 </div>
                 <h2 className="mt-2 text-xl font-semibold text-foreground">
-                  Smart irrigation snapshot
+                  {t("home.smartSnapshot")}
                 </h2>
               </div>
               <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-primary">
-                Demo Mode
+                {t("home.demoMode")}
               </span>
             </div>
 
             <div className="mt-6 rounded-[1.5rem] bg-gradient-card-active p-5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/70">
-                  Main Valve
+                  {t("home.mainValve")}
                 </span>
                 <span
                   className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${
@@ -127,13 +125,15 @@ function HomePage() {
                       : "bg-destructive/15 text-destructive"
                   }`}
                 >
-                  {isOn ? "Active" : "Standby"}
+                  {isOn ? t("common.active") : t("home.standby")}
                 </span>
               </div>
 
               <div className="mt-6 flex items-center justify-between">
                 <div>
-                  <div className="text-sm text-foreground/72">Runtime</div>
+                  <div className="text-sm text-foreground/72">
+                    {t("home.runtime")}
+                  </div>
                   <div className="mt-1 font-mono text-3xl font-bold text-foreground">
                     {formatDuration(isOn ? elapsed : 0)}
                   </div>
@@ -146,9 +146,12 @@ function HomePage() {
               </div>
 
               <div className="mt-5 grid grid-cols-3 gap-2">
-                <MiniMetric value="A-C" label="Zones" />
-                <MiniMetric value="Auto" label="Mode" />
-                <MiniMetric value="58%" label="Humidity" />
+                <MiniMetric value="A-C" label={t("smart.zone")} />
+                <MiniMetric
+                  value={t("home.stat.auto")}
+                  label={t("home.stat.mode")}
+                />
+                <MiniMetric value="58%" label={t("home.humidity")} />
               </div>
             </div>
           </div>
@@ -156,13 +159,13 @@ function HomePage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             <QuickCard
               icon={ShieldCheck}
-              title="Client-only Smart Control"
-              text="Visitors can order and track. Clients get the operational control layer."
+              title={t("home.clientOnlySmart")}
+              text={t("home.clientOnlySmartText")}
             />
             <QuickCard
               icon={Bell}
-              title="Unified notifications"
-              text="Orders, approvals, and irrigation events all belong in one workflow."
+              title={t("home.unifiedNotifications")}
+              text={t("home.unifiedNotificationsText")}
             />
           </div>
         </div>
@@ -172,26 +175,26 @@ function HomePage() {
         {[
           {
             to: "/services" as const,
-            label: "Services catalog",
-            text: "Hydroseeding, irrigation installation, and land restoration services.",
+            label: t("home.servicesCatalog"),
+            text: t("home.servicesCatalogText"),
             icon: Leaf,
           },
           {
             to: "/products" as const,
-            label: "Products catalog",
-            text: "Grass seed, mulch fiber, and biofertilizer with order-ready flows.",
+            label: t("home.productsCatalog"),
+            text: t("home.productsCatalogText"),
             icon: ShoppingBag,
           },
           {
             to: "/smart-control" as const,
-            label: "Smart Control",
-            text: "Client-focused control panel with simulation mode and zone logic.",
+            label: t("nav.smart"),
+            text: t("home.smartControlText"),
             icon: Cpu,
           },
           {
             to: "/order" as const,
-            label: "Order desk",
-            text: "Choose platform submission or WhatsApp handoff in one place.",
+            label: t("home.orderDesk"),
+            text: t("home.orderDeskText"),
             icon: Wrench,
           },
         ].map(({ to, label, text, icon: Icon }) => (
@@ -216,30 +219,29 @@ function HomePage() {
       <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="surface-card rounded-[1.75rem] p-6">
           <div className="text-xs font-bold tracking-[0.24em] text-primary">
-            WHY IT WORKS
+            {t("home.why")}
           </div>
           <h2 className="mt-2 text-2xl font-semibold text-foreground">
-            A calm product surface for messy real operations
+            {t("home.whyTitle")}
           </h2>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            The visitor flow stays simple. The client workspace stays focused.
-            The admin workspace keeps the dense decisions where they belong.
+            {t("home.whyText")}
           </p>
           <div className="mt-6 space-y-3">
             <FeatureRow
               icon={Gauge}
-              title="Operational visibility"
-              text="Track orders, zones, sensor simulation, and contact preferences without context switching."
+              title={t("home.visibility")}
+              text={t("home.visibilityText")}
             />
             <FeatureRow
               icon={CloudOff}
-              title="Offline-first mindset"
-              text="The product is framed around remote areas where reliability matters more than flashy automation."
+              title={t("home.offlineMindset")}
+              text={t("home.offlineMindsetText")}
             />
             <FeatureRow
               icon={Mountain}
-              title="Built for land work"
-              text="Hydroseeding, irrigation, and soil stabilization are first-class entities, not generic SaaS placeholders."
+              title={t("home.landWork")}
+              text={t("home.landWorkText")}
             />
           </div>
         </div>
@@ -248,10 +250,10 @@ function HomePage() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="text-xs font-bold tracking-[0.24em] text-primary">
-                WORKSPACE FLOW
+                {t("home.workspaceFlow")}
               </div>
               <h2 className="mt-2 text-2xl font-semibold text-foreground">
-                From visitor to managed client
+                {t("home.workspaceFlowTitle")}
               </h2>
             </div>
           </div>
@@ -259,18 +261,18 @@ function HomePage() {
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             <FlowCard
               step="01"
-              title="Visitor order"
-              text="Guests choose product or service, then send through the platform or WhatsApp."
+              title={t("home.visitorOrder")}
+              text={t("home.visitorOrderText")}
             />
             <FlowCard
               step="02"
-              title="Client workspace"
-              text="Signed-in clients review orders, notifications, tracking, and irrigation access."
+              title={t("home.clientWorkspaceFlow")}
+              text={t("home.clientWorkspaceFlowText")}
             />
             <FlowCard
               step="03"
-              title="Admin control"
-              text="Operations teams manage products, services, clients, and order status from one hub."
+              title={t("home.adminControl")}
+              text={t("home.adminControlText")}
             />
           </div>
         </div>

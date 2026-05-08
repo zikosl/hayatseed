@@ -158,29 +158,6 @@ function AdminOrdersPage() {
 
         <div className="grid gap-4 xl:grid-cols-[minmax(0,1.35fr)_minmax(380px,0.65fr)]">
           <section className="space-y-4">
-            <div className="grid gap-2 md:grid-cols-7">
-              {statuses.map((status) => (
-                <button
-                  key={status}
-                  onClick={() =>
-                    setStatusFilter(statusFilter === status ? "all" : status)
-                  }
-                  className={`rounded-lg border px-3 py-3 text-left transition ${
-                    statusFilter === status
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-card hover:bg-secondary"
-                  }`}
-                >
-                  <div className="text-lg font-semibold">
-                    {orders.filter((order) => order.status === status).length}
-                  </div>
-                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em]">
-                    {t(`status.${status}`)}
-                  </div>
-                </button>
-              ))}
-            </div>
-
             <AdminToolbar
               query={query}
               onQueryChange={setQuery}

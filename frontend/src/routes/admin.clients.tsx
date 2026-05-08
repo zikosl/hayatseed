@@ -25,6 +25,7 @@ import {
 import { DashboardShell } from "@/components/DashboardShell";
 import { RoleGate } from "@/components/RoleGate";
 import { useAppState } from "@/lib/app-state";
+import { useI18n } from "@/lib/i18n";
 import type { User } from "@/lib/types";
 
 export const Route = createFileRoute("/admin/clients")({
@@ -55,6 +56,7 @@ function AdminClientsPage() {
     updateClient,
     users,
   } = useAppState();
+  const { t } = useI18n();
   const clients = users.filter((user) => user.role === "client");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(
@@ -114,7 +116,7 @@ function AdminClientsPage() {
       !draft.email.trim() ||
       (!selectedId && !draft.password.trim())
     ) {
-      toast.error("Client needs name, email, and password.");
+      toast.error(t("admin.clients.validation"));
       return;
     }
     const duplicate = users.some(
@@ -123,7 +125,7 @@ function AdminClientsPage() {
         user.id !== selectedId,
     );
     if (duplicate) {
-      toast.error("A user with this email already exists.");
+      toast.error(t("admin.clients.duplicate"));
       return;
     }
     if (selectedId) {
@@ -132,7 +134,7 @@ function AdminClientsPage() {
         email: draft.email.trim().toLowerCase(),
         phone: draft.phone.trim(),
       });
-      toast.success("Client profile updated.");
+      toast.success(t("admin.clients.updated"));
       return;
     }
     createClient({
@@ -142,21 +144,21 @@ function AdminClientsPage() {
       password: draft.password.trim(),
     });
     setDraft(blankClient);
-    toast.success("Client created.");
+    toast.success(t("admin.clients.created"));
   }
 
   function notifyClient(client: User) {
     if (!message.trim()) {
-      toast.error("Write a notification before sending.");
+      toast.error(t("admin.clients.writeNotification"));
       return;
     }
     createNotification({
       userId: client.id,
-      title: "Admin update",
+      title: t("admin.clients.adminUpdate"),
       body: message.trim(),
     });
     setMessage("");
-    toast.success(`Notification sent to ${client.name}.`);
+    toast.success(t("admin.clients.notificationSent", { name: client.name }));
   }
 
   function removeClient(client: User) {
@@ -169,35 +171,35 @@ function AdminClientsPage() {
     }
     deleteClient(client.id);
     setSelectedId(clients.find((entry) => entry.id !== client.id)?.id ?? null);
-    toast.success("Client removed and orders detached.");
+    toast.success(t("admin.clients.removed"));
   }
 
   return (
     <RoleGate allow={["admin"]}>
       <DashboardShell
-        kicker="ADMIN CLIENTS"
-        title="Clients"
-        intro="Manage client accounts, contact details, order history, and direct notifications from one CRM-style workspace."
+        kicker={t("admin.clients.kicker")}
+        title={t("admin.clients.title")}
+        intro={t("admin.clients.intro")}
       >
         <div className="grid gap-3 md:grid-cols-4">
           <AdminStat
             icon={UsersRound}
-            label="Clients"
+            label={t("admin.clients.title")}
             value={`${clients.length}`}
           />
           <AdminStat
             icon={BadgeCheck}
-            label="Attached orders"
+            label={t("admin.clients.attachedOrders")}
             value={`${totalAttachedOrders}`}
           />
           <AdminStat
             icon={Mail}
-            label="Unread notices"
+            label={t("admin.clients.unreadNotices")}
             value={`${unreadNotifications}`}
           />
           <AdminStat
             icon={ShieldCheck}
-            label="Avg orders"
+            label={t("admin.clients.avgOrders")}
             value={`${(totalAttachedOrders / Math.max(clients.length, 1)).toFixed(1)}`}
           />
         </div>
@@ -207,20 +209,20 @@ function AdminClientsPage() {
             <AdminToolbar
               query={query}
               onQueryChange={setQuery}
-              placeholder="Search clients by name, email, or phone"
+              placeholder={t("admin.clients.search")}
             >
               <PrimaryButton onClick={beginCreate}>
                 <UserPlus className="h-4 w-4" />
-                New client
+                {t("admin.clients.new")}
               </PrimaryButton>
             </AdminToolbar>
 
             <div className="surface-card overflow-hidden rounded-lg">
               <div className="grid grid-cols-[1fr_0.7fr_0.45fr_0.45fr] gap-3 border-b border-border px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground max-lg:hidden">
-                <div>Client</div>
-                <div>Contact</div>
-                <div>Orders</div>
-                <div className="text-right">Open</div>
+                <div>{t("admin.clients.title")}</div>
+                <div>{t("admin.clients.contact")}</div>
+                <div>{t("nav.orders")}</div>
+                <div className="text-right">{t("admin.clients.open")}</div>
               </div>
               <div className="divide-y divide-border">
                 {filteredClients.map((client) => {
@@ -244,13 +246,13 @@ function AdminClientsPage() {
                         </div>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {client.phone || "No phone"}
+                        {client.phone || t("admin.clients.noPhone")}
                       </div>
                       <div className="text-sm font-semibold text-foreground">
                         {clientOrders.length}
                       </div>
                       <div className="text-right text-sm font-semibold text-primary">
-                        Profile
+                        {t("admin.clients.profile")}
                       </div>
                     </button>
                   );
@@ -258,8 +260,8 @@ function AdminClientsPage() {
                 {!filteredClients.length && (
                   <div className="p-4">
                     <EmptyState
-                      title="No clients found"
-                      text="Adjust search or create a new managed client account."
+                      title={t("admin.clients.noFound")}
+                      text={t("admin.clients.noFoundText")}
                     />
                   </div>
                 )}
@@ -271,29 +273,31 @@ function AdminClientsPage() {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  {selected ? "Client profile" : "New client"}
+                  {selected
+                    ? t("admin.clients.clientProfile")
+                    : t("admin.clients.new")}
                 </div>
                 <h2 className="mt-1 text-xl font-semibold text-foreground">
-                  {selected?.name ?? "Create account"}
+                  {selected?.name ?? t("admin.clients.createAccount")}
                 </h2>
               </div>
               {selected && (
                 <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-                  Client
+                  {t("admin.clients.title")}
                 </span>
               )}
             </div>
 
             <form onSubmit={saveClient} className="mt-5 space-y-4">
               <Field
-                label="Name"
+                label={t("common.name")}
                 value={draft.name}
                 onChange={(value) => setDraft({ ...draft, name: value })}
-                placeholder="Client name"
+                placeholder={t("admin.clients.clientName")}
                 required
               />
               <Field
-                label="Email"
+                label={t("auth.email")}
                 type="email"
                 value={draft.email}
                 onChange={(value) => setDraft({ ...draft, email: value })}
@@ -301,14 +305,14 @@ function AdminClientsPage() {
                 required
               />
               <Field
-                label="Phone"
+                label={t("ct.phone")}
                 value={draft.phone}
                 onChange={(value) => setDraft({ ...draft, phone: value })}
                 placeholder="+213..."
               />
               {!selected && (
                 <Field
-                  label="Temporary password"
+                  label={t("admin.clients.tempPassword")}
                   value={draft.password}
                   onChange={(value) => setDraft({ ...draft, password: value })}
                   required
@@ -316,7 +320,9 @@ function AdminClientsPage() {
               )}
               <PrimaryButton type="submit">
                 <UserPlus className="h-4 w-4" />
-                {selected ? "Save profile" : "Create client"}
+                {selected
+                  ? t("admin.clients.saveProfile")
+                  : t("admin.clients.createClient")}
               </PrimaryButton>
             </form>
 
@@ -325,13 +331,13 @@ function AdminClientsPage() {
                 <div className="rounded-lg border border-border bg-card p-3">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      Contact
+                      {t("admin.clients.contact")}
                     </div>
                     <div className="flex gap-2">
                       <a
                         href={`mailto:${selected.email}`}
                         className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary"
-                        aria-label="Email client"
+                        aria-label={t("admin.clients.emailClient")}
                       >
                         <Mail className="h-4 w-4" />
                       </a>
@@ -339,7 +345,7 @@ function AdminClientsPage() {
                         <a
                           href={`tel:${selected.phone}`}
                           className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-secondary"
-                          aria-label="Call client"
+                          aria-label={t("admin.clients.callClient")}
                         >
                           <Phone className="h-4 w-4" />
                         </a>
@@ -350,26 +356,26 @@ function AdminClientsPage() {
 
                 <div className="space-y-3">
                   <TextAreaField
-                    label="Send notification"
+                    label={t("admin.clients.sendNotification")}
                     value={message}
                     onChange={setMessage}
-                    placeholder="Write a client-facing notification"
+                    placeholder={t("admin.clients.notificationPlaceholder")}
                   />
                   <div className="flex flex-wrap gap-2">
                     <PrimaryButton onClick={() => notifyClient(selected)}>
                       <Send className="h-4 w-4" />
-                      Notify
+                      {t("admin.clients.notify")}
                     </PrimaryButton>
                     <DangerButton onClick={() => removeClient(selected)}>
                       <Trash2 className="h-4 w-4" />
-                      Remove
+                      {t("admin.clients.remove")}
                     </DangerButton>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    Order history
+                    {t("admin.clients.orderHistory")}
                   </div>
                   {(ordersByClient[selected.id] ?? []).map((order) => (
                     <div
@@ -391,8 +397,8 @@ function AdminClientsPage() {
                   ))}
                   {!(ordersByClient[selected.id] ?? []).length && (
                     <EmptyState
-                      title="No orders yet"
-                      text="This client has no linked orders in the workspace."
+                      title={t("admin.clients.noOrders")}
+                      text={t("admin.clients.noOrdersText")}
                     />
                   )}
                 </div>

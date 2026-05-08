@@ -4,6 +4,7 @@ import { DashboardShell } from "@/components/DashboardShell";
 import { RoleGate } from "@/components/RoleGate";
 import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/client/notifications")({
   component: ClientNotificationsPage,
@@ -11,35 +12,39 @@ export const Route = createFileRoute("/client/notifications")({
 
 function ClientNotificationsPage() {
   const { user } = useAuth();
-  const { markAllNotificationsRead, notifications, markNotificationRead } = useAppState();
-  const items = notifications.filter((notification) => notification.userId === user?.id);
+  const { t } = useI18n();
+  const { markAllNotificationsRead, notifications, markNotificationRead } =
+    useAppState();
+  const items = notifications.filter(
+    (notification) => notification.userId === user?.id,
+  );
   const unread = items.filter((notification) => !notification.read).length;
 
   return (
     <RoleGate allow={["client", "admin"]}>
       <DashboardShell
-        kicker="NOTIFICATIONS"
-        title="Client notifications"
-        intro="This panel is ready for order updates, irrigation alerts, and future device events."
+        kicker={t("client.notifications.kicker")}
+        title={t("client.notifications.title")}
+        intro={t("client.notifications.intro")}
       >
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-3">
             <div className="grid gap-3 sm:grid-cols-3">
               <InfoTile
                 icon={Bell}
-                label="Unread"
+                label={t("client.notifications.unread")}
                 value={`${unread}`}
                 tone={unread ? "primary" : "neutral"}
               />
               <InfoTile
                 icon={PackageCheck}
-                label="Order updates"
+                label={t("client.notifications.orderUpdates")}
                 value={`${items.filter((notification) => notification.title.includes("Order")).length}`}
                 tone="neutral"
               />
               <InfoTile
                 icon={Droplets}
-                label="System alerts"
+                label={t("client.notifications.systemAlerts")}
                 value={`${items.filter((notification) => !notification.title.includes("Order")).length}`}
                 tone="neutral"
               />
@@ -49,7 +54,7 @@ function ClientNotificationsPage() {
                 onClick={() => user?.id && markAllNotificationsRead(user.id)}
                 className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
               >
-                Mark all as read
+                {t("client.notifications.markAll")}
               </button>
             </div>
             {items.map((notification) => (
@@ -63,10 +68,12 @@ function ClientNotificationsPage() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="font-bold text-foreground">{notification.title}</h2>
+                  <h2 className="font-bold text-foreground">
+                    {notification.title}
+                  </h2>
                   {!notification.read && (
                     <span className="rounded-full bg-primary px-2 py-1 text-[10px] font-bold text-primary-foreground">
-                      NEW
+                      {t("client.notifications.new")}
                     </span>
                   )}
                 </div>
@@ -79,23 +86,23 @@ function ClientNotificationsPage() {
           <aside className="surface-card rounded-[1.8rem] p-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
               <CheckCircle2 className="h-3.5 w-3.5" />
-              Inbox flow
+              {t("client.notifications.inboxFlow")}
             </div>
             <h2 className="mt-4 text-xl font-semibold text-foreground">
-              Notifications should feel operational, not noisy.
+              {t("client.notifications.operational")}
             </h2>
             <div className="mt-5 space-y-3">
               <SideNote
-                title="Orders"
-                text="Quote changes, approval requests, and delivery updates stay grouped here for quick follow-up."
+                title={t("client.orders")}
+                text={t("client.notifications.ordersText")}
               />
               <SideNote
-                title="Smart control"
-                text="When real devices arrive, drought or irrigation anomalies can land in the same stream without changing the layout."
+                title={t("client.smartControl")}
+                text={t("client.notifications.smartText")}
               />
               <SideNote
-                title="Read state"
-                text="Unread items stand out, but the panel still stays calm enough for everyday use on mobile."
+                title={t("client.notifications.readState")}
+                text={t("client.notifications.readStateText")}
               />
             </div>
           </aside>
@@ -119,7 +126,9 @@ function InfoTile({
   return (
     <div
       className={`rounded-[1.45rem] border px-4 py-4 ${
-        tone === "primary" ? "border-primary/20 bg-primary/5" : "border-white/60 bg-white/75"
+        tone === "primary"
+          ? "border-primary/20 bg-primary/5"
+          : "border-white/60 bg-white/75"
       }`}
     >
       <div className="flex items-center gap-3">
@@ -128,7 +137,9 @@ function InfoTile({
         </div>
         <div>
           <div className="text-lg font-semibold text-foreground">{value}</div>
-          <div className="text-xs uppercase tracking-[0.24em] text-muted-foreground">{label}</div>
+          <div className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+            {label}
+          </div>
         </div>
       </div>
     </div>
@@ -139,7 +150,9 @@ function SideNote({ title, text }: { title: string; text: string }) {
   return (
     <div className="rounded-[1.35rem] border border-white/60 bg-white/75 p-4">
       <div className="text-sm font-semibold text-foreground">{title}</div>
-      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+        {text}
+      </p>
     </div>
   );
 }

@@ -451,6 +451,7 @@ const dicts: Record<Lang, Dict> = {
       "Adjust the search or visibility filter, or create a new catalog item.",
     "admin.products.edit": "Edit product",
     "admin.products.create": "Create catalog item",
+    "admin.products.namePlaceholder": "Premium Grass Seed",
     "admin.products.imageUrl": "Image URL",
     "admin.products.imagePlaceholder": "Optional public image URL",
     "admin.products.highlights": "Product highlights",
@@ -485,6 +486,7 @@ const dicts: Record<Lang, Dict> = {
       "Adjust the search or status filter, or create a new service.",
     "admin.services.edit": "Edit service",
     "admin.services.create": "Create service offer",
+    "admin.services.namePlaceholder": "Hydroseeding",
     "admin.services.imageUrl": "Background image URL",
     "admin.services.imagePlaceholder":
       "Paste an image URL or use the generated asset path",
@@ -537,6 +539,246 @@ const dicts: Record<Lang, Dict> = {
     "client.notifications": "Notifications",
     "client.notificationsValue": "Unread counters and one-click read cleanup",
     "client.smartValue": "Simulation mode with real zone and mode logic",
+
+    "home.opsBadge":
+      "Operations software for irrigation, orders, and field coordination",
+    "home.platform": "Hayatseed Platform",
+    "home.landOps": "Smart land operations",
+    "home.mainTitle":
+      "Run irrigation, orders, and field service from one clean control layer.",
+    "home.mainIntro":
+      "Hayatseed combines smart irrigation control, guest ordering, client follow-up, and admin operations in a product that feels modern enough for SaaS and practical enough for real work on the ground.",
+    "home.startOrder": "Start an order",
+    "home.openWorkspace": "Open workspace",
+    "home.stat.water": "Water reduction model",
+    "home.stat.roles": "Visitor, client, admin",
+    "home.stat.tracking": "Order tracking access",
+    "home.livePanel": "LIVE PANEL",
+    "home.smartSnapshot": "Smart irrigation snapshot",
+    "home.demoMode": "Demo Mode",
+    "home.mainValve": "Main Valve",
+    "home.standby": "Standby",
+    "home.runtime": "Runtime",
+    "home.humidity": "Humidity",
+    "home.clientOnlySmart": "Client-only Smart Control",
+    "home.clientOnlySmartText":
+      "Visitors can order and track. Clients get the operational control layer.",
+    "home.unifiedNotifications": "Unified notifications",
+    "home.unifiedNotificationsText":
+      "Orders, approvals, and irrigation events all belong in one workflow.",
+    "home.servicesCatalog": "Services catalog",
+    "home.servicesCatalogText":
+      "Hydroseeding, irrigation installation, and land restoration services.",
+    "home.productsCatalog": "Products catalog",
+    "home.productsCatalogText":
+      "Grass seed, mulch fiber, and biofertilizer with order-ready flows.",
+    "home.smartControlText":
+      "Client-focused control panel with simulation mode and zone logic.",
+    "home.orderDesk": "Order desk",
+    "home.orderDeskText":
+      "Choose platform submission or WhatsApp handoff in one place.",
+    "home.why": "WHY IT WORKS",
+    "home.whyTitle": "A calm product surface for messy real operations",
+    "home.whyText":
+      "The visitor flow stays simple. The client workspace stays focused. The admin workspace keeps the dense decisions where they belong.",
+    "home.visibility": "Operational visibility",
+    "home.visibilityText":
+      "Track orders, zones, sensor simulation, and contact preferences without context switching.",
+    "home.offlineMindset": "Offline-first mindset",
+    "home.offlineMindsetText":
+      "The product is framed around remote areas where reliability matters more than flashy automation.",
+    "home.landWork": "Built for land work",
+    "home.landWorkText":
+      "Hydroseeding, irrigation, and soil stabilization are first-class entities, not generic SaaS placeholders.",
+    "home.workspaceFlow": "WORKSPACE FLOW",
+    "home.workspaceFlowTitle": "From visitor to managed client",
+    "home.visitorOrder": "Visitor order",
+    "home.visitorOrderText":
+      "Guests choose product or service, then send through the platform or WhatsApp.",
+    "home.clientWorkspaceFlow": "Client workspace",
+    "home.clientWorkspaceFlowText":
+      "Signed-in clients review orders, notifications, tracking, and irrigation access.",
+    "home.adminControl": "Admin control",
+    "home.adminControlText":
+      "Operations teams manage products, services, clients, and order status from one hub.",
+
+    "about.heroTitle": "Algerian eco-tech with a product mindset.",
+    "about.positioning": "POSITIONING",
+    "about.coreFocus": "Core focus",
+    "about.coreFocusValue": "Irrigation, restoration, and green land recovery",
+    "about.operatingStyle": "Operating style",
+    "about.operatingStyleValue":
+      "Field execution supported by digital workflows",
+    "about.platformDirection": "Platform direction",
+    "about.platformDirectionValue":
+      "Visitor, client, and admin operations in one product",
+
+    "contact.heroTitle": "Reach the Hayatseed team without friction.",
+    "contact.heroText":
+      "The order desk handles product and service requests. This space stays focused on direct contact, office context, and quick routing when someone already knows what they need.",
+    "contact.responseFlow": "RESPONSE FLOW",
+    "contact.step1": "1. Order desk",
+    "contact.step1Text":
+      "Use the platform when you need a tracked request and follow-up reference.",
+    "contact.step2": "2. Direct contact",
+    "contact.step2Text":
+      "Use WhatsApp or phone for urgent pre-sales conversations and local coordination.",
+    "contact.step3": "3. Admin handoff",
+    "contact.step3Text":
+      "Submitted requests flow into the admin workspace for status management.",
+
+    "admin.clients.kicker": "ADMIN CLIENTS",
+    "admin.clients.title": "Clients",
+    "admin.clients.intro":
+      "Manage client accounts, contact details, order history, and direct notifications from one CRM-style workspace.",
+    "admin.clients.attachedOrders": "Attached orders",
+    "admin.clients.unreadNotices": "Unread notices",
+    "admin.clients.avgOrders": "Avg orders",
+    "admin.clients.search": "Search clients by name, email, or phone",
+    "admin.clients.new": "New client",
+    "admin.clients.contact": "Contact",
+    "admin.clients.open": "Open",
+    "admin.clients.noPhone": "No phone",
+    "admin.clients.profile": "Profile",
+    "admin.clients.noFound": "No clients found",
+    "admin.clients.noFoundText":
+      "Adjust search or create a new managed client account.",
+    "admin.clients.clientProfile": "Client profile",
+    "admin.clients.createAccount": "Create account",
+    "admin.clients.clientName": "Client name",
+    "admin.clients.tempPassword": "Temporary password",
+    "admin.clients.saveProfile": "Save profile",
+    "admin.clients.createClient": "Create client",
+    "admin.clients.emailClient": "Email client",
+    "admin.clients.callClient": "Call client",
+    "admin.clients.sendNotification": "Send notification",
+    "admin.clients.notificationPlaceholder":
+      "Write a client-facing notification",
+    "admin.clients.notify": "Notify",
+    "admin.clients.remove": "Remove",
+    "admin.clients.orderHistory": "Order history",
+    "admin.clients.noOrders": "No orders yet",
+    "admin.clients.noOrdersText":
+      "This client has no linked orders in the workspace.",
+    "admin.clients.validation": "Client needs name, email, and password.",
+    "admin.clients.duplicate": "A user with this email already exists.",
+    "admin.clients.updated": "Client profile updated.",
+    "admin.clients.created": "Client created.",
+    "admin.clients.writeNotification": "Write a notification before sending.",
+    "admin.clients.adminUpdate": "Admin update",
+    "admin.clients.notificationSent": "Notification sent to {name}.",
+    "admin.clients.removed": "Client removed and orders detached.",
+
+    "admin.settings.kicker": "ADMIN SETTINGS",
+    "admin.settings.title": "System settings",
+    "admin.settings.intro":
+      "Operational readiness, demo credentials, data storage notes, and production handoff guidance for the Hayatseed admin workspace.",
+    "admin.settings.users": "Users",
+    "admin.settings.catalog": "Catalog",
+    "admin.settings.access": "Access",
+    "admin.settings.demoCredentials": "Demo credentials",
+    "admin.settings.adminEmail": "Admin email",
+    "admin.settings.adminPassword": "Admin password",
+    "admin.settings.clientEmail": "Client email",
+    "admin.settings.clientPassword": "Client password",
+    "admin.settings.environment": "Environment",
+    "admin.settings.developmentStack": "Development stack",
+    "admin.settings.frontend": "Frontend",
+    "admin.settings.backendHealth": "Backend health",
+    "admin.settings.database": "Database",
+    "admin.settings.databaseValue": "Postgres 16 via Docker Compose",
+    "admin.settings.persistence": "Persistence",
+    "admin.settings.persistenceValue":
+      "Browser localStorage plus Docker volumes",
+    "admin.settings.productionChecklist": "Production checklist",
+    "admin.settings.beforeLaunch": "Before launch",
+    "admin.settings.apiPersistence": "Move admin data to API persistence",
+    "admin.settings.apiPersistenceText":
+      "The interface is production-shaped, but current browser state should be replaced with authenticated backend storage for live deployment.",
+    "admin.settings.auth": "Harden authentication",
+    "admin.settings.authText":
+      "Use hashed passwords, server sessions or JWT refresh flow, and role checks enforced by the backend.",
+    "admin.settings.audit": "Audit destructive actions",
+    "admin.settings.auditText":
+      "Keep soft-delete/archive for catalog records tied to historical orders.",
+    "admin.settings.observability": "Add observability",
+    "admin.settings.observabilityText":
+      "Track failed requests, order status changes, and admin actions in server logs.",
+
+    "client.orders.kicker": "CLIENT ORDERS",
+    "client.orders.title": "Your orders",
+    "client.orders.intro":
+      "Both product and service requests live here, along with status history, admin notes, and client responses.",
+    "client.orders.allStatuses": "All statuses",
+    "client.orders.allTypes": "All order types",
+    "client.orders.productRequest": "Product request",
+    "client.orders.serviceRequest": "Service request",
+    "client.orders.contact": "Contact",
+    "client.orders.noMatch": "No client orders match the selected filters.",
+    "client.orders.createAnother": "Create another order",
+    "client.orders.detail": "ORDER DETAIL",
+    "client.orders.approve": "Approve",
+    "client.orders.callback": "Request callback",
+    "client.orders.cancel": "Cancel request",
+    "client.orders.sendNote": "Send a note to Hayatseed",
+    "client.orders.notePlaceholder":
+      "Ask a question, confirm details, or request a follow-up.",
+    "client.orders.send": "Send note",
+    "client.orders.select":
+      "Select an order to see its status history and actions.",
+
+    "client.notifications.kicker": "NOTIFICATIONS",
+    "client.notifications.title": "Client notifications",
+    "client.notifications.intro":
+      "This panel is ready for order updates, irrigation alerts, and future device events.",
+    "client.notifications.unread": "Unread",
+    "client.notifications.orderUpdates": "Order updates",
+    "client.notifications.systemAlerts": "System alerts",
+    "client.notifications.markAll": "Mark all as read",
+    "client.notifications.new": "NEW",
+    "client.notifications.inboxFlow": "Inbox flow",
+    "client.notifications.operational":
+      "Notifications should feel operational, not noisy.",
+    "client.notifications.ordersText":
+      "Quote changes, approval requests, and delivery updates stay grouped here for quick follow-up.",
+    "client.notifications.smartText":
+      "When real devices arrive, drought or irrigation anomalies can land in the same stream without changing the layout.",
+    "client.notifications.readState": "Read state",
+    "client.notifications.readStateText":
+      "Unread items stand out, but the panel still stays calm enough for everyday use on mobile.",
+
+    "client.track.kicker": "TRACKING",
+    "client.track.title": "Order tracking references",
+    "client.track.intro":
+      "Each client order keeps its platform reference and access code for support follow-up.",
+    "client.track.orderType": "Order type",
+    "client.track.location": "Location",
+    "client.track.accessCode": "Access code",
+    "client.track.desk": "Tracking desk",
+    "client.track.cleanRef": "Every order gets a clean support reference.",
+    "client.track.cleanRefText":
+      "The same reference can be used by support, clients, and the admin team, which keeps phone and WhatsApp follow-up simple even before deeper automation arrives.",
+    "client.track.shareable": "Shareable",
+    "client.track.shareableText":
+      "Clients can quote the order number immediately when calling or messaging support.",
+    "client.track.private": "Private",
+    "client.track.privateText":
+      "The access code keeps guest-style tracking available without exposing other order data.",
+
+    "client.account.kicker": "ACCOUNT",
+    "client.account.title": "Client account",
+    "client.account.intro":
+      "Manage your contact profile and keep the operational basics current for Hayatseed follow-up.",
+    "client.account.profileStatus": "PROFILE STATUS",
+    "client.account.relationship": "Your workspace relationship",
+    "client.account.state": "Account state",
+    "client.account.why": "Why this matters",
+    "client.account.whyText":
+      "Accurate contact details make quotes, callbacks, and installation follow-up smoother.",
+    "client.account.bestPractice": "Best practice",
+    "client.account.bestPracticeText":
+      "Keep the phone field current if the team should call you about approvals or site scheduling.",
+    "root.notFound": "Page not found.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -744,7 +986,7 @@ const dicts: Record<Lang, Dict> = {
     "prod.readyMany": "{count} produits prêts à commander",
     "prod.noMatch": "Aucun produit trouvé",
     "prod.noMatchText": "Essayez une autre recherche ou videz le champ.",
-    "prod.platformOrder": "Commande plateforme",
+    "prod.platformOrder": "Commander",
 
     "smart.kicker": "CONTRÔLE INTELLIGENT",
     "smart.title": "Tableau de Bord Irrigation",
@@ -973,6 +1215,7 @@ const dicts: Record<Lang, Dict> = {
       "Ajustez la recherche ou la visibilité, ou créez un nouvel article.",
     "admin.products.edit": "Modifier produit",
     "admin.products.create": "Créer article catalogue",
+    "admin.products.namePlaceholder": "Semences premium",
     "admin.products.imageUrl": "URL image",
     "admin.products.imagePlaceholder": "URL d'image publique optionnelle",
     "admin.products.highlights": "Points forts produit",
@@ -1006,6 +1249,7 @@ const dicts: Record<Lang, Dict> = {
       "Ajustez la recherche ou le statut, ou créez un service.",
     "admin.services.edit": "Modifier service",
     "admin.services.create": "Créer offre service",
+    "admin.services.namePlaceholder": "Hydroseeding",
     "admin.services.imageUrl": "URL image de fond",
     "admin.services.imagePlaceholder":
       "Collez une URL ou utilisez le chemin d'un asset généré",
@@ -1059,6 +1303,247 @@ const dicts: Record<Lang, Dict> = {
     "client.notifications": "Notifications",
     "client.notificationsValue": "Compteurs non lus et nettoyage en un clic",
     "client.smartValue": "Mode simulation avec logique réelle de zones",
+
+    "home.opsBadge":
+      "Logiciel d'opérations pour irrigation, commandes et coordination terrain",
+    "home.platform": "Plateforme Hayatseed",
+    "home.landOps": "Opérations terrain intelligentes",
+    "home.mainTitle":
+      "Pilotez irrigation, commandes et service terrain depuis une seule couche claire.",
+    "home.mainIntro":
+      "Hayatseed réunit contrôle d'irrigation, commandes visiteurs, suivi client et opérations admin dans un produit moderne et pratique pour le travail réel sur le terrain.",
+    "home.startOrder": "Démarrer une commande",
+    "home.openWorkspace": "Ouvrir l'espace",
+    "home.stat.water": "Modèle de réduction d'eau",
+    "home.stat.roles": "Visiteur, client, admin",
+    "home.stat.tracking": "Suivi des commandes 24/7",
+    "home.livePanel": "PANNEAU LIVE",
+    "home.smartSnapshot": "Aperçu irrigation intelligente",
+    "home.demoMode": "Mode démo",
+    "home.mainValve": "Vanne principale",
+    "home.standby": "En attente",
+    "home.runtime": "Durée",
+    "home.humidity": "Humidité",
+    "home.clientOnlySmart": "Contrôle intelligent réservé client",
+    "home.clientOnlySmartText":
+      "Les visiteurs commandent et suivent. Les clients ont la couche de contrôle opérationnel.",
+    "home.unifiedNotifications": "Notifications unifiées",
+    "home.unifiedNotificationsText":
+      "Commandes, approbations et événements irrigation vivent dans un seul flux.",
+    "home.servicesCatalog": "Catalogue services",
+    "home.servicesCatalogText":
+      "Hydroseeding, installation irrigation et restauration des terres.",
+    "home.productsCatalog": "Catalogue produits",
+    "home.productsCatalogText":
+      "Semences, fibres mulch et biofertilisants prêts à commander.",
+    "home.smartControlText":
+      "Panneau client avec mode simulation et logique de zones.",
+    "home.orderDesk": "Bureau commandes",
+    "home.orderDeskText":
+      "Choisir soumission plateforme ou relais WhatsApp au même endroit.",
+    "home.why": "POURQUOI ÇA MARCHE",
+    "home.whyTitle": "Une surface calme pour des opérations réelles complexes",
+    "home.whyText":
+      "Le parcours visiteur reste simple, l'espace client concentré, et l'admin garde les décisions denses au bon endroit.",
+    "home.visibility": "Visibilité opérationnelle",
+    "home.visibilityText":
+      "Suivre commandes, zones, simulation capteurs et préférences contact sans changer de contexte.",
+    "home.offlineMindset": "Mentalité hors-ligne",
+    "home.offlineMindsetText":
+      "Le produit pense aux zones reculées où la fiabilité compte plus que l'automatisation spectaculaire.",
+    "home.landWork": "Conçu pour le terrain",
+    "home.landWorkText":
+      "Hydroseeding, irrigation et stabilisation des sols sont des entités de premier plan.",
+    "home.workspaceFlow": "FLUX ESPACES",
+    "home.workspaceFlowTitle": "Du visiteur au client suivi",
+    "home.visitorOrder": "Commande visiteur",
+    "home.visitorOrderText":
+      "Les visiteurs choisissent produit ou service, puis envoient via plateforme ou WhatsApp.",
+    "home.clientWorkspaceFlow": "Espace client",
+    "home.clientWorkspaceFlowText":
+      "Les clients connectés consultent commandes, notifications, suivi et irrigation.",
+    "home.adminControl": "Contrôle admin",
+    "home.adminControlText":
+      "Les équipes gèrent produits, services, clients et statuts depuis un hub.",
+
+    "about.heroTitle": "Eco-tech algérienne avec une mentalité produit.",
+    "about.positioning": "POSITIONNEMENT",
+    "about.coreFocus": "Priorité",
+    "about.coreFocusValue":
+      "Irrigation, restauration et récupération des terres vertes",
+    "about.operatingStyle": "Style opérationnel",
+    "about.operatingStyleValue":
+      "Exécution terrain soutenue par des flux digitaux",
+    "about.platformDirection": "Direction plateforme",
+    "about.platformDirectionValue":
+      "Opérations visiteur, client et admin dans un produit",
+
+    "contact.heroTitle": "Contactez Hayatseed sans friction.",
+    "contact.heroText":
+      "Le bureau commandes gère les demandes produits et services. Cette page reste concentrée sur le contact direct, le contexte bureau et l'orientation rapide.",
+    "contact.responseFlow": "FLUX DE RÉPONSE",
+    "contact.step1": "1. Bureau commandes",
+    "contact.step1Text":
+      "Utilisez la plateforme pour une demande suivie avec référence.",
+    "contact.step2": "2. Contact direct",
+    "contact.step2Text":
+      "Utilisez WhatsApp ou téléphone pour les échanges urgents et la coordination locale.",
+    "contact.step3": "3. Relais admin",
+    "contact.step3Text":
+      "Les demandes envoyées arrivent dans l'espace admin pour gestion du statut.",
+
+    "admin.clients.kicker": "CLIENTS ADMIN",
+    "admin.clients.title": "Clients",
+    "admin.clients.intro":
+      "Gérez comptes clients, contacts, historique commandes et notifications directes depuis un espace CRM.",
+    "admin.clients.attachedOrders": "Commandes liées",
+    "admin.clients.unreadNotices": "Avis non lus",
+    "admin.clients.avgOrders": "Moy. commandes",
+    "admin.clients.search": "Rechercher clients par nom, email ou téléphone",
+    "admin.clients.new": "Nouveau client",
+    "admin.clients.contact": "Contact",
+    "admin.clients.open": "Ouvrir",
+    "admin.clients.noPhone": "Aucun téléphone",
+    "admin.clients.profile": "Profil",
+    "admin.clients.noFound": "Aucun client trouvé",
+    "admin.clients.noFoundText":
+      "Ajustez la recherche ou créez un compte client.",
+    "admin.clients.clientProfile": "Profil client",
+    "admin.clients.createAccount": "Créer compte",
+    "admin.clients.clientName": "Nom client",
+    "admin.clients.tempPassword": "Mot de passe temporaire",
+    "admin.clients.saveProfile": "Enregistrer profil",
+    "admin.clients.createClient": "Créer client",
+    "admin.clients.emailClient": "Envoyer email",
+    "admin.clients.callClient": "Appeler client",
+    "admin.clients.sendNotification": "Envoyer notification",
+    "admin.clients.notificationPlaceholder": "Écrire une notification client",
+    "admin.clients.notify": "Notifier",
+    "admin.clients.remove": "Retirer",
+    "admin.clients.orderHistory": "Historique commandes",
+    "admin.clients.noOrders": "Aucune commande",
+    "admin.clients.noOrdersText": "Ce client n'a aucune commande liée.",
+    "admin.clients.validation":
+      "Le client doit avoir nom, email et mot de passe.",
+    "admin.clients.duplicate": "Un utilisateur avec cet email existe déjà.",
+    "admin.clients.updated": "Profil client mis à jour.",
+    "admin.clients.created": "Client créé.",
+    "admin.clients.writeNotification":
+      "Écrivez une notification avant l'envoi.",
+    "admin.clients.adminUpdate": "Mise à jour admin",
+    "admin.clients.notificationSent": "Notification envoyée à {name}.",
+    "admin.clients.removed": "Client retiré et commandes détachées.",
+
+    "admin.settings.kicker": "PARAMÈTRES ADMIN",
+    "admin.settings.title": "Paramètres système",
+    "admin.settings.intro":
+      "Préparation opérationnelle, identifiants démo, stockage et guidance production pour l'espace admin.",
+    "admin.settings.users": "Utilisateurs",
+    "admin.settings.catalog": "Catalogue",
+    "admin.settings.access": "Accès",
+    "admin.settings.demoCredentials": "Identifiants démo",
+    "admin.settings.adminEmail": "Email admin",
+    "admin.settings.adminPassword": "Mot de passe admin",
+    "admin.settings.clientEmail": "Email client",
+    "admin.settings.clientPassword": "Mot de passe client",
+    "admin.settings.environment": "Environnement",
+    "admin.settings.developmentStack": "Stack développement",
+    "admin.settings.frontend": "Frontend",
+    "admin.settings.backendHealth": "Santé backend",
+    "admin.settings.database": "Base de données",
+    "admin.settings.databaseValue": "Postgres 16 via Docker Compose",
+    "admin.settings.persistence": "Persistance",
+    "admin.settings.persistenceValue":
+      "localStorage navigateur plus volumes Docker",
+    "admin.settings.productionChecklist": "Checklist production",
+    "admin.settings.beforeLaunch": "Avant lancement",
+    "admin.settings.apiPersistence": "Déplacer les données admin vers l'API",
+    "admin.settings.apiPersistenceText":
+      "L'interface est prête côté produit, mais l'état navigateur doit passer vers un stockage backend authentifié.",
+    "admin.settings.auth": "Renforcer l'authentification",
+    "admin.settings.authText":
+      "Utiliser mots de passe hashés, sessions serveur ou JWT refresh, et rôles côté backend.",
+    "admin.settings.audit": "Auditer les actions destructives",
+    "admin.settings.auditText":
+      "Garder suppression douce/archive pour les catalogues liés à des commandes.",
+    "admin.settings.observability": "Ajouter l'observabilité",
+    "admin.settings.observabilityText":
+      "Tracer échecs, changements de statut et actions admin dans les logs serveur.",
+
+    "client.orders.kicker": "COMMANDES CLIENT",
+    "client.orders.title": "Vos commandes",
+    "client.orders.intro":
+      "Les demandes produits et services vivent ici avec historique, notes admin et réponses client.",
+    "client.orders.allStatuses": "Tous les statuts",
+    "client.orders.allTypes": "Tous les types",
+    "client.orders.productRequest": "Demande produit",
+    "client.orders.serviceRequest": "Demande service",
+    "client.orders.contact": "Contact",
+    "client.orders.noMatch": "Aucune commande ne correspond aux filtres.",
+    "client.orders.createAnother": "Créer une autre commande",
+    "client.orders.detail": "DÉTAIL COMMANDE",
+    "client.orders.approve": "Approuver",
+    "client.orders.callback": "Demander rappel",
+    "client.orders.cancel": "Annuler demande",
+    "client.orders.sendNote": "Envoyer une note à Hayatseed",
+    "client.orders.notePlaceholder":
+      "Poser une question, confirmer ou demander un suivi.",
+    "client.orders.send": "Envoyer note",
+    "client.orders.select":
+      "Sélectionnez une commande pour voir historique et actions.",
+
+    "client.notifications.kicker": "NOTIFICATIONS",
+    "client.notifications.title": "Notifications client",
+    "client.notifications.intro":
+      "Ce panneau est prêt pour mises à jour commande, alertes irrigation et événements appareils.",
+    "client.notifications.unread": "Non lues",
+    "client.notifications.orderUpdates": "Mises à jour commandes",
+    "client.notifications.systemAlerts": "Alertes système",
+    "client.notifications.markAll": "Tout marquer lu",
+    "client.notifications.new": "NOUVEAU",
+    "client.notifications.inboxFlow": "Flux boîte",
+    "client.notifications.operational":
+      "Les notifications doivent rester utiles, pas bruyantes.",
+    "client.notifications.ordersText":
+      "Devis, approbations et livraisons restent groupés pour suivi rapide.",
+    "client.notifications.smartText":
+      "Avec les appareils réels, anomalies irrigation et sécheresse rejoindront le même flux.",
+    "client.notifications.readState": "État lecture",
+    "client.notifications.readStateText":
+      "Les non lus ressortent tout en gardant un panneau calme sur mobile.",
+
+    "client.track.kicker": "SUIVI",
+    "client.track.title": "Références de suivi",
+    "client.track.intro":
+      "Chaque commande client garde sa référence et son code d'accès.",
+    "client.track.orderType": "Type commande",
+    "client.track.location": "Localisation",
+    "client.track.accessCode": "Code d'accès",
+    "client.track.desk": "Bureau suivi",
+    "client.track.cleanRef": "Chaque commande reçoit une référence claire.",
+    "client.track.cleanRefText":
+      "La même référence sert au support, aux clients et à l'admin pour simplifier téléphone et WhatsApp.",
+    "client.track.shareable": "Partageable",
+    "client.track.shareableText":
+      "Les clients peuvent citer le numéro de commande en appelant ou écrivant au support.",
+    "client.track.private": "Privé",
+    "client.track.privateText":
+      "Le code d'accès permet un suivi sans exposer les autres données.",
+
+    "client.account.kicker": "COMPTE",
+    "client.account.title": "Compte client",
+    "client.account.intro":
+      "Gérez votre profil contact et gardez les bases à jour pour le suivi Hayatseed.",
+    "client.account.profileStatus": "ÉTAT PROFIL",
+    "client.account.relationship": "Votre relation espace",
+    "client.account.state": "État compte",
+    "client.account.why": "Pourquoi c'est important",
+    "client.account.whyText":
+      "Des contacts précis facilitent devis, rappels et installation.",
+    "client.account.bestPractice": "Bonne pratique",
+    "client.account.bestPracticeText":
+      "Gardez le téléphone à jour si l'équipe doit vous appeler.",
+    "root.notFound": "Page introuvable.",
   },
   ar: {
     "nav.home": "الرئيسية",
@@ -1479,6 +1964,7 @@ const dicts: Record<Lang, Dict> = {
       "عدّل البحث أو الرؤية، أو أنشئ عنصر كتالوج جديد.",
     "admin.products.edit": "تعديل المنتج",
     "admin.products.create": "إنشاء عنصر كتالوج",
+    "admin.products.namePlaceholder": "بذور عشب ممتازة",
     "admin.products.imageUrl": "رابط الصورة",
     "admin.products.imagePlaceholder": "رابط صورة عام اختياري",
     "admin.products.highlights": "نقاط المنتج",
@@ -1510,6 +1996,7 @@ const dicts: Record<Lang, Dict> = {
     "admin.services.noFoundText": "عدّل البحث أو الحالة، أو أنشئ خدمة جديدة.",
     "admin.services.edit": "تعديل الخدمة",
     "admin.services.create": "إنشاء عرض خدمة",
+    "admin.services.namePlaceholder": "البذر المائي",
     "admin.services.imageUrl": "رابط صورة الخلفية",
     "admin.services.imagePlaceholder": "الصق رابط صورة أو استخدم مسار أصل مولد",
     "admin.services.createService": "إنشاء خدمة",
@@ -1559,6 +2046,235 @@ const dicts: Record<Lang, Dict> = {
     "client.notifications": "الإشعارات",
     "client.notificationsValue": "عدادات غير مقروءة وتنظيف بنقرة واحدة",
     "client.smartValue": "وضع محاكاة بمنطق مناطق حقيقي",
+
+    "home.opsBadge": "برنامج عمليات للري والطلبات والتنسيق الميداني",
+    "home.platform": "منصة Hayatseed",
+    "home.landOps": "عمليات أرض ذكية",
+    "home.mainTitle":
+      "أدر الري والطلبات والخدمة الميدانية من طبقة تحكم واضحة واحدة.",
+    "home.mainIntro":
+      "تجمع Hayatseed التحكم الذكي في الري وطلبات الزوار ومتابعة العملاء وعمليات المدير في منتج حديث وعملي للعمل الحقيقي في الميدان.",
+    "home.startOrder": "ابدأ طلباً",
+    "home.openWorkspace": "فتح المساحة",
+    "home.stat.water": "نموذج تقليل المياه",
+    "home.stat.roles": "زائر، عميل، مدير",
+    "home.stat.tracking": "تتبع الطلبات 24/7",
+    "home.livePanel": "لوحة مباشرة",
+    "home.smartSnapshot": "لمحة الري الذكي",
+    "home.demoMode": "وضع تجريبي",
+    "home.mainValve": "الصمام الرئيسي",
+    "home.standby": "استعداد",
+    "home.runtime": "مدة التشغيل",
+    "home.humidity": "الرطوبة",
+    "home.clientOnlySmart": "تحكم ذكي للعميل فقط",
+    "home.clientOnlySmartText":
+      "يمكن للزوار الطلب والتتبع. يحصل العملاء على طبقة التحكم التشغيلية.",
+    "home.unifiedNotifications": "إشعارات موحدة",
+    "home.unifiedNotificationsText":
+      "الطلبات والموافقات وأحداث الري في سير واحد.",
+    "home.servicesCatalog": "كتالوج الخدمات",
+    "home.servicesCatalogText": "البذر المائي وتركيب الري واستصلاح الأراضي.",
+    "home.productsCatalog": "كتالوج المنتجات",
+    "home.productsCatalogText": "بذور وعناصر mulch وسماد حيوي جاهزة للطلب.",
+    "home.smartControlText": "لوحة عميل بوضع محاكاة ومنطق مناطق.",
+    "home.orderDesk": "مكتب الطلبات",
+    "home.orderDeskText": "اختر إرسال المنصة أو تحويل واتساب في مكان واحد.",
+    "home.why": "لماذا يعمل",
+    "home.whyTitle": "واجهة هادئة لعمليات ميدانية معقدة",
+    "home.whyText":
+      "يبقى مسار الزائر بسيطاً، ومساحة العميل مركزة، ومساحة المدير تحتفظ بالقرارات التشغيلية.",
+    "home.visibility": "رؤية تشغيلية",
+    "home.visibilityText":
+      "تتبع الطلبات والمناطق ومحاكاة المستشعرات وتفضيلات التواصل دون تبديل السياق.",
+    "home.offlineMindset": "تفكير يعمل دون إنترنت",
+    "home.offlineMindsetText":
+      "المنتج مصمم للمناطق النائية حيث الموثوقية أهم من الأتمتة المبهرة.",
+    "home.landWork": "مصمم لعمل الأرض",
+    "home.landWorkText":
+      "البذر المائي والري وتثبيت التربة كيانات أساسية وليست بدائل عامة.",
+    "home.workspaceFlow": "سير المساحات",
+    "home.workspaceFlowTitle": "من زائر إلى عميل مدار",
+    "home.visitorOrder": "طلب زائر",
+    "home.visitorOrderText":
+      "يختار الزوار منتجاً أو خدمة ثم يرسلون عبر المنصة أو واتساب.",
+    "home.clientWorkspaceFlow": "مساحة العميل",
+    "home.clientWorkspaceFlowText":
+      "يراجع العملاء الطلبات والإشعارات والتتبع والوصول للري.",
+    "home.adminControl": "تحكم المدير",
+    "home.adminControlText":
+      "تدير الفرق المنتجات والخدمات والعملاء وحالة الطلبات من مركز واحد.",
+
+    "about.heroTitle": "تكنولوجيا بيئية جزائرية بعقلية منتج.",
+    "about.positioning": "التموضع",
+    "about.coreFocus": "التركيز الأساسي",
+    "about.coreFocusValue": "الري والاستصلاح واستعادة الأراضي الخضراء",
+    "about.operatingStyle": "أسلوب التشغيل",
+    "about.operatingStyleValue": "تنفيذ ميداني مدعوم بتدفقات رقمية",
+    "about.platformDirection": "اتجاه المنصة",
+    "about.platformDirectionValue":
+      "عمليات الزائر والعميل والمدير في منتج واحد",
+
+    "contact.heroTitle": "تواصل مع فريق Hayatseed دون تعقيد.",
+    "contact.heroText":
+      "مكتب الطلبات يدير طلبات المنتجات والخدمات. هذه الصفحة مخصصة للتواصل المباشر والسياق المكتبي والتوجيه السريع.",
+    "contact.responseFlow": "سير الاستجابة",
+    "contact.step1": "1. مكتب الطلبات",
+    "contact.step1Text":
+      "استخدم المنصة عندما تحتاج طلباً متتبعاً ومرجع متابعة.",
+    "contact.step2": "2. تواصل مباشر",
+    "contact.step2Text":
+      "استخدم واتساب أو الهاتف للمحادثات العاجلة والتنسيق المحلي.",
+    "contact.step3": "3. تحويل للمدير",
+    "contact.step3Text":
+      "تنتقل الطلبات المرسلة إلى مساحة المدير لإدارة الحالة.",
+
+    "admin.clients.kicker": "عملاء المدير",
+    "admin.clients.title": "العملاء",
+    "admin.clients.intro":
+      "إدارة حسابات العملاء ومعلومات التواصل وتاريخ الطلبات والإشعارات المباشرة من مساحة تشبه CRM.",
+    "admin.clients.attachedOrders": "طلبات مرتبطة",
+    "admin.clients.unreadNotices": "إشعارات غير مقروءة",
+    "admin.clients.avgOrders": "متوسط الطلبات",
+    "admin.clients.search": "بحث عن العملاء بالاسم أو البريد أو الهاتف",
+    "admin.clients.new": "عميل جديد",
+    "admin.clients.contact": "التواصل",
+    "admin.clients.open": "فتح",
+    "admin.clients.noPhone": "لا يوجد هاتف",
+    "admin.clients.profile": "الملف",
+    "admin.clients.noFound": "لم يتم العثور على عملاء",
+    "admin.clients.noFoundText": "عدّل البحث أو أنشئ حساب عميل جديد.",
+    "admin.clients.clientProfile": "ملف العميل",
+    "admin.clients.createAccount": "إنشاء حساب",
+    "admin.clients.clientName": "اسم العميل",
+    "admin.clients.tempPassword": "كلمة مرور مؤقتة",
+    "admin.clients.saveProfile": "حفظ الملف",
+    "admin.clients.createClient": "إنشاء عميل",
+    "admin.clients.emailClient": "إرسال بريد للعميل",
+    "admin.clients.callClient": "الاتصال بالعميل",
+    "admin.clients.sendNotification": "إرسال إشعار",
+    "admin.clients.notificationPlaceholder": "اكتب إشعاراً موجهاً للعميل",
+    "admin.clients.notify": "إشعار",
+    "admin.clients.remove": "إزالة",
+    "admin.clients.orderHistory": "تاريخ الطلبات",
+    "admin.clients.noOrders": "لا توجد طلبات بعد",
+    "admin.clients.noOrdersText": "لا توجد طلبات مرتبطة بهذا العميل.",
+    "admin.clients.validation": "يحتاج العميل إلى اسم وبريد وكلمة مرور.",
+    "admin.clients.duplicate": "يوجد مستخدم بهذا البريد بالفعل.",
+    "admin.clients.updated": "تم تحديث ملف العميل.",
+    "admin.clients.created": "تم إنشاء العميل.",
+    "admin.clients.writeNotification": "اكتب إشعاراً قبل الإرسال.",
+    "admin.clients.adminUpdate": "تحديث من المدير",
+    "admin.clients.notificationSent": "تم إرسال الإشعار إلى {name}.",
+    "admin.clients.removed": "تمت إزالة العميل وفصل الطلبات.",
+
+    "admin.settings.kicker": "إعدادات المدير",
+    "admin.settings.title": "إعدادات النظام",
+    "admin.settings.intro":
+      "جاهزية التشغيل وبيانات الدخول التجريبية وملاحظات التخزين والإطلاق.",
+    "admin.settings.users": "المستخدمون",
+    "admin.settings.catalog": "الكتالوج",
+    "admin.settings.access": "الوصول",
+    "admin.settings.demoCredentials": "بيانات الدخول التجريبية",
+    "admin.settings.adminEmail": "بريد المدير",
+    "admin.settings.adminPassword": "كلمة مرور المدير",
+    "admin.settings.clientEmail": "بريد العميل",
+    "admin.settings.clientPassword": "كلمة مرور العميل",
+    "admin.settings.environment": "البيئة",
+    "admin.settings.developmentStack": "حزمة التطوير",
+    "admin.settings.frontend": "الواجهة الأمامية",
+    "admin.settings.backendHealth": "صحة الخادم",
+    "admin.settings.database": "قاعدة البيانات",
+    "admin.settings.databaseValue": "Postgres 16 عبر Docker Compose",
+    "admin.settings.persistence": "الاستمرارية",
+    "admin.settings.persistenceValue":
+      "localStorage في المتصفح مع أحجام Docker",
+    "admin.settings.productionChecklist": "قائمة الإنتاج",
+    "admin.settings.beforeLaunch": "قبل الإطلاق",
+    "admin.settings.apiPersistence": "نقل بيانات المدير إلى API",
+    "admin.settings.apiPersistenceText":
+      "الواجهة جاهزة إنتاجياً، لكن حالة المتصفح يجب أن تنتقل إلى تخزين خلفي موثق.",
+    "admin.settings.auth": "تقوية المصادقة",
+    "admin.settings.authText":
+      "استخدم كلمات مرور مشفرة وجلسات أو JWT مع تحقق أدوار في الخلفية.",
+    "admin.settings.audit": "تدقيق الإجراءات الخطرة",
+    "admin.settings.auditText":
+      "حافظ على الأرشفة بدلاً من الحذف للكتالوجات المرتبطة بطلبات.",
+    "admin.settings.observability": "إضافة المراقبة",
+    "admin.settings.observabilityText":
+      "تتبع فشل الطلبات وتغيرات الحالة وإجراءات المدير في السجلات.",
+
+    "client.orders.kicker": "طلبات العميل",
+    "client.orders.title": "طلباتك",
+    "client.orders.intro":
+      "طلبات المنتجات والخدمات هنا مع التاريخ وملاحظات المدير وردود العميل.",
+    "client.orders.allStatuses": "كل الحالات",
+    "client.orders.allTypes": "كل الأنواع",
+    "client.orders.productRequest": "طلب منتج",
+    "client.orders.serviceRequest": "طلب خدمة",
+    "client.orders.contact": "التواصل",
+    "client.orders.noMatch": "لا توجد طلبات عميل تطابق الفلاتر.",
+    "client.orders.createAnother": "إنشاء طلب آخر",
+    "client.orders.detail": "تفاصيل الطلب",
+    "client.orders.approve": "موافقة",
+    "client.orders.callback": "طلب اتصال",
+    "client.orders.cancel": "إلغاء الطلب",
+    "client.orders.sendNote": "إرسال ملاحظة إلى Hayatseed",
+    "client.orders.notePlaceholder":
+      "اطرح سؤالاً أو أكد التفاصيل أو اطلب متابعة.",
+    "client.orders.send": "إرسال الملاحظة",
+    "client.orders.select": "اختر طلباً لرؤية تاريخه وإجراءاته.",
+
+    "client.notifications.kicker": "الإشعارات",
+    "client.notifications.title": "إشعارات العميل",
+    "client.notifications.intro":
+      "هذه اللوحة جاهزة لتحديثات الطلبات وتنبيهات الري وأحداث الأجهزة.",
+    "client.notifications.unread": "غير مقروءة",
+    "client.notifications.orderUpdates": "تحديثات الطلبات",
+    "client.notifications.systemAlerts": "تنبيهات النظام",
+    "client.notifications.markAll": "تحديد الكل كمقروء",
+    "client.notifications.new": "جديد",
+    "client.notifications.inboxFlow": "سير الوارد",
+    "client.notifications.operational": "يجب أن تكون الإشعارات عملية لا مزعجة.",
+    "client.notifications.ordersText":
+      "تغييرات السعر والموافقات والتسليم تبقى مجمعة للمتابعة.",
+    "client.notifications.smartText":
+      "عند وصول الأجهزة، ستظهر تنبيهات الري والجفاف في نفس التدفق.",
+    "client.notifications.readState": "حالة القراءة",
+    "client.notifications.readStateText":
+      "تبرز العناصر غير المقروءة مع بقاء اللوحة هادئة للهاتف.",
+
+    "client.track.kicker": "التتبع",
+    "client.track.title": "مراجع تتبع الطلبات",
+    "client.track.intro":
+      "كل طلب عميل يحتفظ بمرجع المنصة وكود الوصول للمتابعة.",
+    "client.track.orderType": "نوع الطلب",
+    "client.track.location": "الموقع",
+    "client.track.accessCode": "كود الوصول",
+    "client.track.desk": "مكتب التتبع",
+    "client.track.cleanRef": "كل طلب يحصل على مرجع دعم واضح.",
+    "client.track.cleanRefText":
+      "يمكن استخدام نفس المرجع من الدعم والعملاء والمدير لتبسيط الهاتف وواتساب.",
+    "client.track.shareable": "قابل للمشاركة",
+    "client.track.shareableText":
+      "يمكن للعميل ذكر رقم الطلب فوراً عند الاتصال بالدعم.",
+    "client.track.private": "خاص",
+    "client.track.privateText":
+      "كود الوصول يتيح تتبعاً دون كشف بقية بيانات الطلب.",
+
+    "client.account.kicker": "الحساب",
+    "client.account.title": "حساب العميل",
+    "client.account.intro":
+      "أدر ملف التواصل وابق المعلومات الأساسية محدثة لمتابعة Hayatseed.",
+    "client.account.profileStatus": "حالة الملف",
+    "client.account.relationship": "علاقتك بالمساحة",
+    "client.account.state": "حالة الحساب",
+    "client.account.why": "لماذا هذا مهم",
+    "client.account.whyText":
+      "بيانات التواصل الدقيقة تجعل العروض والاتصالات والتركيب أسهل.",
+    "client.account.bestPractice": "أفضل ممارسة",
+    "client.account.bestPracticeText":
+      "حافظ على رقم الهاتف محدثاً إذا كان الفريق سيتصل بك.",
+    "root.notFound": "الصفحة غير موجودة.",
   },
 };
 

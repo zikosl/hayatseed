@@ -261,7 +261,7 @@ function AdminServicesPage() {
                 label={t("common.name")}
                 value={draft.name}
                 onChange={(value) => setDraft({ ...draft, name: value })}
-                placeholder="Hydroseeding"
+                placeholder={t("admin.services.namePlaceholder")}
                 required
               />
               <TextAreaField

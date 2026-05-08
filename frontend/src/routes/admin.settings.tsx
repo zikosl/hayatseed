@@ -4,6 +4,7 @@ import { AdminStat } from "@/components/AdminPrimitives";
 import { DashboardShell } from "@/components/DashboardShell";
 import { RoleGate } from "@/components/RoleGate";
 import { useAppState } from "@/lib/app-state";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/admin/settings")({
   component: AdminSettingsPage,
@@ -11,29 +12,34 @@ export const Route = createFileRoute("/admin/settings")({
 
 function AdminSettingsPage() {
   const { notifications, orders, products, services, users } = useAppState();
+  const { t } = useI18n();
 
   return (
     <RoleGate allow={["admin"]}>
       <DashboardShell
-        kicker="ADMIN SETTINGS"
-        title="System settings"
-        intro="Operational readiness, demo credentials, data storage notes, and production handoff guidance for the Hayatseed admin workspace."
+        kicker={t("admin.settings.kicker")}
+        title={t("admin.settings.title")}
+        intro={t("admin.settings.intro")}
       >
         <div className="grid gap-3 md:grid-cols-4">
-          <AdminStat icon={Database} label="Users" value={`${users.length}`} />
           <AdminStat
             icon={Database}
-            label="Orders"
+            label={t("admin.settings.users")}
+            value={`${users.length}`}
+          />
+          <AdminStat
+            icon={Database}
+            label={t("nav.orders")}
             value={`${orders.length}`}
           />
           <AdminStat
             icon={Database}
-            label="Catalog"
+            label={t("admin.settings.catalog")}
             value={`${products.length + services.length}`}
           />
           <AdminStat
             icon={Database}
-            label="Notifications"
+            label={t("nav.notifications")}
             value={`${notifications.length}`}
           />
         </div>
@@ -46,18 +52,30 @@ function AdminSettingsPage() {
               </span>
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  Access
+                  {t("admin.settings.access")}
                 </div>
                 <h2 className="text-xl font-semibold text-foreground">
-                  Demo credentials
+                  {t("admin.settings.demoCredentials")}
                 </h2>
               </div>
             </div>
             <div className="mt-4 grid gap-3">
-              <SettingRow label="Admin email" value="admin@hayatseed.dz" />
-              <SettingRow label="Admin password" value="admin123" />
-              <SettingRow label="Client email" value="client@hayatseed.dz" />
-              <SettingRow label="Client password" value="client123" />
+              <SettingRow
+                label={t("admin.settings.adminEmail")}
+                value="admin@hayatseed.dz"
+              />
+              <SettingRow
+                label={t("admin.settings.adminPassword")}
+                value="admin123"
+              />
+              <SettingRow
+                label={t("admin.settings.clientEmail")}
+                value="client@hayatseed.dz"
+              />
+              <SettingRow
+                label={t("admin.settings.clientPassword")}
+                value="client123"
+              />
             </div>
           </section>
 
@@ -68,26 +86,29 @@ function AdminSettingsPage() {
               </span>
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  Environment
+                  {t("admin.settings.environment")}
                 </div>
                 <h2 className="text-xl font-semibold text-foreground">
-                  Development stack
+                  {t("admin.settings.developmentStack")}
                 </h2>
               </div>
             </div>
             <div className="mt-4 grid gap-3">
-              <SettingRow label="Frontend" value="http://localhost:3000" />
               <SettingRow
-                label="Backend health"
+                label={t("admin.settings.frontend")}
+                value="http://localhost:3000"
+              />
+              <SettingRow
+                label={t("admin.settings.backendHealth")}
                 value="http://localhost:4000/api/health"
               />
               <SettingRow
-                label="Database"
-                value="Postgres 16 via Docker Compose"
+                label={t("admin.settings.database")}
+                value={t("admin.settings.databaseValue")}
               />
               <SettingRow
-                label="Persistence"
-                value="Browser localStorage plus Docker volumes"
+                label={t("admin.settings.persistence")}
+                value={t("admin.settings.persistenceValue")}
               />
             </div>
           </section>
@@ -99,29 +120,29 @@ function AdminSettingsPage() {
               </span>
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  Production checklist
+                  {t("admin.settings.productionChecklist")}
                 </div>
                 <h2 className="text-xl font-semibold text-foreground">
-                  Before launch
+                  {t("admin.settings.beforeLaunch")}
                 </h2>
               </div>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               <ChecklistItem
-                title="Move admin data to API persistence"
-                text="The interface is production-shaped, but current browser state should be replaced with authenticated backend storage for live deployment."
+                title={t("admin.settings.apiPersistence")}
+                text={t("admin.settings.apiPersistenceText")}
               />
               <ChecklistItem
-                title="Harden authentication"
-                text="Use hashed passwords, server sessions or JWT refresh flow, and role checks enforced by the backend."
+                title={t("admin.settings.auth")}
+                text={t("admin.settings.authText")}
               />
               <ChecklistItem
-                title="Audit destructive actions"
-                text="Keep soft-delete/archive for catalog records tied to historical orders."
+                title={t("admin.settings.audit")}
+                text={t("admin.settings.auditText")}
               />
               <ChecklistItem
-                title="Add observability"
-                text="Track failed requests, order status changes, and admin actions in server logs."
+                title={t("admin.settings.observability")}
+                text={t("admin.settings.observabilityText")}
               />
             </div>
           </section>

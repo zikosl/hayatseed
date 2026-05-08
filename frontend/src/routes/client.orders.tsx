@@ -11,6 +11,7 @@ import { DashboardShell } from "@/components/DashboardShell";
 import { RoleGate } from "@/components/RoleGate";
 import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
+import { useI18n } from "@/lib/i18n";
 import type { OrderEvent, OrderStatus } from "@/lib/types";
 
 export const Route = createFileRoute("/client/orders")({
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/client/orders")({
 function ClientOrdersPage() {
   const { user } = useAuth();
   const { addOrderNote, clientRespondToOrder, orders } = useAppState();
+  const { t } = useI18n();
   const clientOrders = orders.filter((order) => order.userId === user?.id);
   const [statusFilter, setStatusFilter] = useState<"all" | OrderStatus>("all");
   const [kindFilter, setKindFilter] = useState<"all" | "product" | "service">(
@@ -53,9 +55,9 @@ function ClientOrdersPage() {
   return (
     <RoleGate allow={["client", "admin"]}>
       <DashboardShell
-        kicker="CLIENT ORDERS"
-        title="Your orders"
-        intro="Both product and service requests live here, along with status history, admin notes, and client responses."
+        kicker={t("client.orders.kicker")}
+        title={t("client.orders.title")}
+        intro={t("client.orders.intro")}
       >
         <div className="surface-card grid gap-3 rounded-[1.7rem] p-5 md:grid-cols-2">
           <select
@@ -65,14 +67,14 @@ function ClientOrdersPage() {
             }
             className="rounded-[1.1rem] border border-white/60 bg-white/80 px-4 py-3 text-sm outline-none"
           >
-            <option value="all">All statuses</option>
-            <option value="new">New</option>
-            <option value="contacted">Contacted</option>
-            <option value="quoted">Quoted</option>
-            <option value="approved">Approved</option>
-            <option value="in_progress">In progress</option>
-            <option value="completed">Completed</option>
-            <option value="cancelled">Cancelled</option>
+            <option value="all">{t("client.orders.allStatuses")}</option>
+            <option value="new">{t("status.new")}</option>
+            <option value="contacted">{t("status.contacted")}</option>
+            <option value="quoted">{t("status.quoted")}</option>
+            <option value="approved">{t("status.approved")}</option>
+            <option value="in_progress">{t("status.in_progress")}</option>
+            <option value="completed">{t("status.completed")}</option>
+            <option value="cancelled">{t("status.cancelled")}</option>
           </select>
           <select
             value={kindFilter}
@@ -81,9 +83,9 @@ function ClientOrdersPage() {
             }
             className="rounded-[1.1rem] border border-white/60 bg-white/80 px-4 py-3 text-sm outline-none"
           >
-            <option value="all">All order types</option>
-            <option value="product">Products</option>
-            <option value="service">Services</option>
+            <option value="all">{t("client.orders.allTypes")}</option>
+            <option value="product">{t("nav.products")}</option>
+            <option value="service">{t("nav.services")}</option>
           </select>
         </div>
 
@@ -109,31 +111,40 @@ function ClientOrdersPage() {
                     </h2>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {order.kind === "product"
-                        ? "Product request"
-                        : "Service request"}
+                        ? t("client.orders.productRequest")
+                        : t("client.orders.serviceRequest")}
                     </p>
                   </div>
                   <span className="rounded-full border border-primary/15 bg-primary/7 px-3 py-1 text-xs font-semibold uppercase text-primary">
-                    {order.status.replace("_", " ")}
+                    {t(`status.${order.status}`)}
                   </span>
                 </div>
                 <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  <OrderMeta label="Location" value={order.location} />
-                  <OrderMeta label="Contact" value={order.preferredContact} />
-                  <OrderMeta label="Access code" value={order.accessCode} />
+                  <OrderMeta
+                    label={t("client.track.location")}
+                    value={order.location}
+                  />
+                  <OrderMeta
+                    label={t("client.orders.contact")}
+                    value={order.preferredContact}
+                  />
+                  <OrderMeta
+                    label={t("client.track.accessCode")}
+                    value={order.accessCode}
+                  />
                 </div>
               </button>
             ))}
             {!filteredOrders.length && (
               <div className="surface-card rounded-[1.7rem] p-6 text-sm text-muted-foreground">
-                No client orders match the selected filters.
+                {t("client.orders.noMatch")}
               </div>
             )}
             <Link
               to="/order"
               className="inline-flex rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
             >
-              Create another order
+              {t("client.orders.createAnother")}
             </Link>
           </section>
 
@@ -143,7 +154,7 @@ function ClientOrdersPage() {
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <div className="text-xs font-bold tracking-[0.24em] text-primary">
-                      ORDER DETAIL
+                      {t("client.orders.detail")}
                     </div>
                     <h2 className="mt-2 text-2xl font-semibold text-foreground">
                       {selectedOrder.itemLabel}
@@ -153,14 +164,14 @@ function ClientOrdersPage() {
                     </p>
                   </div>
                   <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                    {selectedOrder.status.replace("_", " ")}
+                    {t(`status.${selectedOrder.status}`)}
                   </span>
                 </div>
 
                 <div className="mt-5 grid gap-3 md:grid-cols-3">
                   <ActionButton
                     icon={ShieldCheck}
-                    label="Approve"
+                    label={t("client.orders.approve")}
                     onClick={() =>
                       clientRespondToOrder(selectedOrder.id, "approve")
                     }
@@ -171,7 +182,7 @@ function ClientOrdersPage() {
                   />
                   <ActionButton
                     icon={PhoneCall}
-                    label="Request callback"
+                    label={t("client.orders.callback")}
                     onClick={() =>
                       clientRespondToOrder(selectedOrder.id, "request_callback")
                     }
@@ -179,7 +190,7 @@ function ClientOrdersPage() {
                   />
                   <ActionButton
                     icon={XCircle}
-                    label="Cancel request"
+                    label={t("client.orders.cancel")}
                     onClick={() =>
                       clientRespondToOrder(selectedOrder.id, "cancel")
                     }
@@ -193,7 +204,7 @@ function ClientOrdersPage() {
 
                 <div className="mt-6">
                   <div className="text-xs font-bold tracking-[0.24em] text-primary">
-                    TIMELINE
+                    {t("admin.orders.timeline")}
                   </div>
                   <div className="mt-4 space-y-3">
                     {(selectedOrder.timeline ?? []).map((event) => (
@@ -205,14 +216,14 @@ function ClientOrdersPage() {
                 <div className="mt-6 rounded-[1.5rem] border border-white/60 bg-white/75 p-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                     <MessageSquareText className="h-4 w-4 text-primary" />
-                    Send a note to Hayatseed
+                    {t("client.orders.sendNote")}
                   </div>
                   <textarea
                     value={note}
                     onChange={(event) => setNote(event.target.value)}
                     rows={4}
                     className="mt-3 w-full rounded-[1rem] border border-white/60 bg-white/80 px-4 py-3 text-sm outline-none"
-                    placeholder="Ask a question, confirm details, or request a follow-up."
+                    placeholder={t("client.orders.notePlaceholder")}
                   />
                   <button
                     onClick={() => {
@@ -222,13 +233,13 @@ function ClientOrdersPage() {
                     }}
                     className="mt-3 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
                   >
-                    Send note
+                    {t("client.orders.send")}
                   </button>
                 </div>
               </>
             ) : (
               <div className="text-sm text-muted-foreground">
-                Select an order to see its status history and actions.
+                {t("client.orders.select")}
               </div>
             )}
           </section>

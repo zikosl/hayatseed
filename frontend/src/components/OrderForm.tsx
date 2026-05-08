@@ -159,7 +159,7 @@ export function OrderForm() {
                 }
                 className="input"
               >
-                <option value="whatsapp">WhatsApp</option>
+                <option value="whatsapp">{t("common.whatsapp")}</option>
                 <option value="phone">{t("ct.phone")}</option>
                 <option value="email">{t("ct.email")}</option>
               </select>

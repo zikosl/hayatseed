@@ -4,6 +4,7 @@ import { DashboardShell } from "@/components/DashboardShell";
 import { RoleGate } from "@/components/RoleGate";
 import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/client/track")({
   component: ClientTrackingPage,
@@ -12,14 +13,15 @@ export const Route = createFileRoute("/client/track")({
 function ClientTrackingPage() {
   const { user } = useAuth();
   const { orders } = useAppState();
+  const { t } = useI18n();
   const items = orders.filter((order) => order.userId === user?.id);
 
   return (
     <RoleGate allow={["client", "admin"]}>
       <DashboardShell
-        kicker="TRACKING"
-        title="Order tracking references"
-        intro="Each client order keeps its platform reference and access code for support follow-up."
+        kicker={t("client.track.kicker")}
+        title={t("client.track.title")}
+        intro={t("client.track.intro")}
       >
         <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="grid gap-3">
@@ -38,23 +40,23 @@ function ClientTrackingPage() {
                     </div>
                   </div>
                   <div className="rounded-full border border-white/60 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
-                    {order.status}
+                    {t(`status.${order.status}`)}
                   </div>
                 </div>
                 <div className="mt-4 grid gap-3 sm:grid-cols-3">
                   <TrackField
                     icon={Package2}
-                    label="Order type"
+                    label={t("client.track.orderType")}
                     value={order.kind}
                   />
                   <TrackField
                     icon={MapPin}
-                    label="Location"
+                    label={t("client.track.location")}
                     value={order.location}
                   />
                   <TrackField
                     icon={KeyRound}
-                    label="Access code"
+                    label={t("client.track.accessCode")}
                     value={order.accessCode}
                   />
                 </div>
@@ -64,24 +66,22 @@ function ClientTrackingPage() {
           <aside className="surface-card rounded-[1.8rem] p-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
               <ScanSearch className="h-3.5 w-3.5" />
-              Tracking desk
+              {t("client.track.desk")}
             </div>
             <h2 className="mt-4 text-xl font-semibold text-foreground">
-              Every order gets a clean support reference.
+              {t("client.track.cleanRef")}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              The same reference can be used by support, clients, and the admin
-              team, which keeps phone and WhatsApp follow-up simple even before
-              deeper automation arrives.
+              {t("client.track.cleanRefText")}
             </p>
             <div className="mt-5 space-y-3">
               <TrackHint
-                title="Shareable"
-                text="Clients can quote the order number immediately when calling or messaging support."
+                title={t("client.track.shareable")}
+                text={t("client.track.shareableText")}
               />
               <TrackHint
-                title="Private"
-                text="The access code keeps guest-style tracking available without exposing other order data."
+                title={t("client.track.private")}
+                text={t("client.track.privateText")}
               />
             </div>
           </aside>
