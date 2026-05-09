@@ -49,6 +49,7 @@ Useful commands:
 ```sh
 docker compose --env-file .env.production -f docker-compose.prod.yml ps
 docker compose --env-file .env.production -f docker-compose.prod.yml logs -f caddy
+docker compose --env-file .env.production -f docker-compose.prod.yml logs -f frontend
 docker compose --env-file .env.production -f docker-compose.prod.yml logs -f backend
 docker compose --env-file .env.production -f docker-compose.prod.yml pull
 docker compose --env-file .env.production -f docker-compose.prod.yml up -d --build
@@ -56,8 +57,9 @@ docker compose --env-file .env.production -f docker-compose.prod.yml up -d --bui
 
 ## Architecture
 
-- `caddy`: public entrypoint, HTTPS, security headers, static frontend, `/api/*` reverse proxy.
+- `caddy`: public entrypoint, HTTPS, security headers, `/api/*` reverse proxy, and frontend proxy.
+- `frontend`: private static web container on port `3000`.
 - `backend`: private Nest API on port `4000`.
 - `postgres`: private PostgreSQL 16 database.
 
-Only Caddy exposes public ports. Backend and Postgres stay on an internal Docker network.
+Only Caddy exposes public ports. Frontend, backend, and Postgres stay on an internal Docker network.
