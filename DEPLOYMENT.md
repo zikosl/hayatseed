@@ -58,7 +58,7 @@ docker compose --env-file .env.production -f docker-compose.prod.yml up -d --bui
 ## Architecture
 
 - `caddy`: public entrypoint, HTTPS, security headers, `/api/*` reverse proxy, and frontend proxy.
-- `frontend`: private static web container on port `3000`.
+- `frontend`: private TanStack Start preview server on port `3000`.
 - `backend`: private Nest API on port `4000`.
 - `postgres`: private PostgreSQL 16 database.
 
